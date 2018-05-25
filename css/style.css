@@ -15,6 +15,7 @@ body {
     color: yellow;
     overflow: hidden;
     background: "https://art.pixilart.com/18b140ee5ae7053.png";
+    background-size:cover
 }
 button, input[type="text"], input[type="number"], .select-container, select {
     color: yellow;
