@@ -4,8 +4,9 @@ A Javascript Script Score board built for American Heritage Robotics Camp sessio
 
 ## Current Functions
 
-Shift adds points to the blue team
-Enter adds points to the red team.
+`Shift` adds points to the blue team
+
+`Enter` adds points to the red team.
 
 [Ninja Score Board](https://djriffle.github.io)
 
