@@ -69,13 +69,14 @@ body > * {
     font-family: sans-serif;
     display: block;
     height: 25vh;
-    width: 15vw;
+    width: 25vw;
     bottom: 50vh;
-    left: 85vw;
+    left: 75vw;
     font-size: 20vh;
     line-height: 1;
     color:blue;
     vertical-align: middle;
+    text-align: center;
 }
 #redScore {
     position: fixed;
@@ -83,13 +84,14 @@ body > * {
     font-family: sans-serif;
     display: block;
     height: 25vh;
-    width: 15vw;
+    width: 25vw;
     bottom: 50vh;
-    left: 6vw;
+    left: 0vw;
     font-size: 20vh;
     line-height: 1;
     color:red;
     vertical-align: middle;
+    text-align: center;
 }
 #timerStart{
     position: fixed;
@@ -99,7 +101,7 @@ body > * {
     height: 20vh;
     width: 20vw;
     top: 0vh;
-    left: 4vw;
+    left: 2vw;
     font-size: 8vh;
     line-height: .8;
     color:green;
@@ -114,7 +116,7 @@ body > * {
     height: 20vh;
     width: 20vw;
     top: 0vh;
-    left: 65vw;
+    left: 76vw;
     font-size: 8vh;
     line-height: .8;
     color:red;
