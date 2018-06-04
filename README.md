@@ -1,6 +1,6 @@
 # Ninja Score Board
 
-A Javascript Script Score board built for American Heritage Robotics Camp session 3.
+A Javascript Script Score board built for American Heritage Robotics Camp 2018.
 
 ## Current Functions
 
