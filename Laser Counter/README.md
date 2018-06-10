@@ -8,6 +8,4 @@ A Javascript Script Score board built for American Heritage Robotics Camp sessio
 
 `Enter` adds points to the red team.
 
-
-
-
+For an unknown reason before you can you use the laser timers you must press `space`

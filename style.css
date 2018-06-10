@@ -28,20 +28,7 @@ button, input[type="text"], input[type="number"], .select-container, select {
     outline: 0;
 }
 
-select {
-    border: none;
-    background: none;
-    color: yellow;
-    height: 25px;
-}
-input[type="text"], input[type="number"] {
-    cursor: text;
-}
-input[type="checkbox"] {
-    -webkit-filter: saturate(0);
-    filter: saturate(0);
-}
-/* Major interface panes, aside, article, header, etc. */
+s
 body > * {
     
     text-shadow: 3px 3px #000000;
@@ -96,65 +83,6 @@ body > * {
 }
 
 
-header {
-    width: 20vw;
-    height: 20vh;
-    top: 0;
-    left: 30vw;
-    color: yellow;
-}
-article {
-    top: 0;
-    left: 50vw;
-    height: 100vh;
-    width: 35vw;
-}
-svg * {
-    stroke: yellow;
-    fill: #222;
-    stroke-width: 2;
-    -webkit-transform-origin: center;
-    -ms-transform-origin: center;
-    transform-origin: center;
-}
-text {
-    font-size: 16px;
-    letter-spacing: 2px;
-    stroke: none;
-    fill: yellow;
-}
 
-aside {
-    right: 0;
-    top: 0;
-    width: 15vw;
-    height: 100vh;
-}
-aside > * {
-    margin-bottom: 20px;
-}
-
-
-body.login-close #login {
-    opacity: 1;
-    width: 0;
-    animation: 1s linear;
-}
-
- Blur transition that does not work
-
-body:not(.login-close) >:not(.greybox) {
-    animation: blur 1s normal forwards
-}
-body.login-close >:not(.greybox) {
-    animation: blur 1s reverse backwards
-}
-@keyframes blur {
-    from {
-        filter: blur(0);
-    }
-    to {
-        filter: blur(3px);
-    }
 }
 */

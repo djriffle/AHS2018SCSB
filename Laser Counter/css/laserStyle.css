@@ -28,20 +28,7 @@ button, input[type="text"], input[type="number"], .select-container, select {
     outline: 0;
 }
 
-select {
-    border: none;
-    background: none;
-    color: yellow;
-    height: 25px;
-}
-input[type="text"], input[type="number"] {
-    cursor: text;
-}
-input[type="checkbox"] {
-    -webkit-filter: saturate(0);
-    filter: saturate(0);
-}
-/* Major interface panes, aside, article, header, etc. */
+
 body > * {
     
     text-shadow: 3px 3px #000000;
@@ -123,6 +110,168 @@ body > * {
     vertical-align: middle;
 }
 
+#blueLaserTimer1{
+    position: fixed;
+    padding:0;
+    font-family: sans-serif;
+    display: block;
+    height: 25vh;
+    width: 14vw;
+    bottom: 27vh;
+    left: 80.5vw;
+    font-size: 20vh;
+    line-height: 1;
+    color:blue;
+    vertical-align: middle;
+    text-align: center;
+    border-style: outset;
+    border-width: medium;
+    cursor: pointer;
+}
+
+#blueLaserTimer2{
+    position: fixed;
+    padding:0;
+    font-family: sans-serif;
+    display: block;
+    height: 25vh;
+    width: 14vw;
+    bottom: 0vh;
+    left: 80.5vw;
+    font-size: 20vh;
+    line-height: 1;
+    color:blue;
+    vertical-align: middle;
+    text-align: center;
+    border-style: outset;
+    border-width: medium;
+    cursor: pointer;
+}
+
+#redLaserTimer1{
+    position: fixed;
+    padding:0;
+    font-family: sans-serif;
+    display: block;
+    height: 25vh;
+    width: 14vw;
+    bottom: 27vh;
+    left: 5.5vw;
+    font-size: 20vh;
+    line-height: 1;
+    color:red;
+    vertical-align: middle;
+    text-align: center;
+    border-style: outset;
+    border-width: medium;
+    cursor: pointer;
+}
+
+#redLaserTimer2{
+    position: fixed;
+    padding:0;
+    font-family: sans-serif;
+    display: block;
+    height: 25vh;
+    width: 14vw;
+    bottom: 0vh;
+    left: 5.5vw;
+    font-size: 20vh;
+    line-height: 1;
+    color:red;
+    vertical-align: middle;
+    text-align: center;
+    border-style: outset;
+    border-width: medium; 
+    cursor: pointer;  
+}
+
+#frontBlueLaserTimer1{
+    position: fixed;
+    padding:0;
+    font-family: sans-serif;
+    display: block;
+    height: 25vh;
+    width: 14vw;
+    bottom: 27vh;
+    left: 80.5vw;
+    font-size: 20vh;
+    line-height: 1;
+    color:blue;
+    vertical-align: middle;
+    text-align: center;
+    border-style: outset;
+    border-width: medium;
+    cursor: pointer;
+}
+
+#frontBlueLaserTimer2{
+    position: fixed;
+    padding:0;
+    font-family: sans-serif;
+    display: block;
+    height: 25vh;
+    width: 14vw;
+    bottom: 0vh;
+    left: 80.5vw;
+    font-size: 20vh;
+    line-height: 1;
+    color:blue;
+    vertical-align: middle;
+    text-align: center;
+    border-style: outset;
+    border-width: medium;
+    cursor: pointer;
+}
+
+#frontRedLaserTimer1{
+    position: fixed;
+    padding:0;
+    font-family: sans-serif;
+    display: block;
+    height: 25vh;
+    width: 14vw;
+    bottom: 27vh;
+    left: 5.5vw;
+    font-size: 20vh;
+    line-height: 1;
+    color:red;
+    vertical-align: middle;
+    text-align: center;
+    border-style: outset;
+    border-width: medium;
+    cursor: pointer;
+}
+
+#frontRedLaserTimer2{
+    position: fixed;
+    padding:0;
+    font-family: sans-serif;
+    display: block;
+    height: 25vh;
+    width: 14vw;
+    bottom: 0vh;
+    left: 5.5vw;
+    font-size: 20vh;
+    line-height: 1;
+    color:red;
+    vertical-align: middle;
+    text-align: center;
+    border-style: outset;
+    border-width: medium; 
+    cursor: pointer;  
+}
+
+/* Blinking Animation*/
+
+.blink {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {  
+  50% { opacity: 0; }
+}
+    
 
 header {
     width: 20vw;
@@ -131,58 +280,6 @@ header {
     left: 30vw;
     color: yellow;
 }
-article {
-    top: 0;
-    left: 50vw;
-    height: 100vh;
-    width: 35vw;
-}
-svg * {
-    stroke: yellow;
-    fill: #222;
-    stroke-width: 2;
-    -webkit-transform-origin: center;
-    -ms-transform-origin: center;
-    transform-origin: center;
-}
-text {
-    font-size: 16px;
-    letter-spacing: 2px;
-    stroke: none;
-    fill: yellow;
-}
 
-aside {
-    right: 0;
-    top: 0;
-    width: 15vw;
-    height: 100vh;
-}
-aside > * {
-    margin-bottom: 20px;
-}
-
-
-body.login-close #login {
-    opacity: 1;
-    width: 0;
-    animation: 1s linear;
-}
-
- Blur transition that does not work
-
-body:not(.login-close) >:not(.greybox) {
-    animation: blur 1s normal forwards
-}
-body.login-close >:not(.greybox) {
-    animation: blur 1s reverse backwards
-}
-@keyframes blur {
-    from {
-        filter: blur(0);
-    }
-    to {
-        filter: blur(3px);
-    }
 }
 */
