@@ -202,7 +202,7 @@ ui.frontRedTimer1.onclick = function () {
       ui.redTimer1.innerText = "10";
       ui.redTimer1.style.display = 'block';
       ui.frontRedTimer1.innerText = "10";
-      ui.frontRedTimer1.style.color = 'bred';
+      ui.frontRedTimer1.style.color = 'red';
     }
     else
     {
@@ -296,19 +296,8 @@ var red1Countdown = function(){
     Math.floor((rt1now % (1000 * 60 * 60)) / (1000 * 60)) * 60;
     rt1countdownSeconds = rt1countdownSecondsDistance - rt1countdownSeconds;
 
-    if(rt1countdownSeconds == -1 ){
-      ui.frontredTimer1.style.display = 'block';
-      ui.redTimer1.style.display = 'none';
-      ui.frontRedTimer1.style.color = 'purple';
-      ui.frontRedTimer1.innerText = "0";
-      rt1Switch = true
-
-      endSound.play();
-
-      clearTimeout(r1c);
-    }
-    else if(rt1countdownSeconds == 0 ){
-      ui.frontredTimer1.style.display = 'block';
+    if(rt1countdownSeconds < 1 ){
+      ui.frontRedTimer1.style.display = 'block';
       ui.redTimer1.style.display = 'none';
       ui.frontRedTimer1.style.color = 'purple';
       ui.frontRedTimer1.innerText = "0";
@@ -323,6 +312,7 @@ var red1Countdown = function(){
       ui.redTimer1.innerText = rt1countdownSeconds;
       r1c = setTimeout(red1Countdown, 1000); // check again in a second
     }
+
 }
 
 var red2Countdown = function(){
