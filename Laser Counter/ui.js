@@ -161,6 +161,7 @@ ui.frontBlueTimer1.onclick = function () {
       ui.blueTimer1.style.display = 'block';
       ui.frontBlueTimer1.innerText = "10";
       ui.frontBlueTimer1.style.color = 'blue';
+      bt2Switch = false;
     }
     else
     {
@@ -182,6 +183,7 @@ ui.frontBlueTimer2.onclick = function () {
       ui.blueTimer2.style.display = 'block';
       ui.frontBlueTimer2.innerText = "20";
       ui.frontBlueTimer2.style.color = 'blue';
+      bt2Switch = false;
     }
     else
     {
@@ -203,6 +205,7 @@ ui.frontRedTimer1.onclick = function () {
       ui.redTimer1.style.display = 'block';
       ui.frontRedTimer1.innerText = "10";
       ui.frontRedTimer1.style.color = 'red';
+      rt1Switch = false;
     }
     else
     {
@@ -224,6 +227,7 @@ ui.frontRedTimer2.onclick = function () {
       ui.redTimer2.style.display = 'block';
       ui.frontRedTimer2.innerText = "20";
       ui.frontRedTimer2.style.color = 'red';
+      rt2Switch = false;
     }
     else
     {
