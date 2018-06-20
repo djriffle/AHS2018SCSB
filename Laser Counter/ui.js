@@ -1,4 +1,4 @@
-// Define UI elements
+ // Define UI elements
 var time;
 var ti;
 var red = 0;
@@ -153,6 +153,7 @@ document.addEventListener('keydown', function(event) {
         }
 
     }
+  });
 
 ui.frontBlueTimer1.onclick = function () {
     if(bt1Switch)
@@ -161,7 +162,7 @@ ui.frontBlueTimer1.onclick = function () {
       ui.blueTimer1.style.display = 'block';
       ui.frontBlueTimer1.innerText = "10";
       ui.frontBlueTimer1.style.color = 'blue';
-      bt2Switch = false;
+      bt2nowSwitch = false;
     }
     else
     {
@@ -243,8 +244,8 @@ ui.frontRedTimer2.onclick = function () {
     }
 }
 
-}
-);
+
+
 
 var blue1Countdown = function(){
     var bt1now = new Date().getTime();
@@ -340,8 +341,8 @@ var red2Countdown = function(){
       //firebase.database().ref('timeLaser').set(time);
       ui.redTimer2.innerText = rt2countdownSeconds;
       r2c = setTimeout(red2Countdown, 1000); // check again in a second
-    }
-}
+    }}
+
 //
 
 
