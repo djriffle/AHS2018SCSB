@@ -9,6 +9,11 @@ var minutes;
 var secondsDistance;
 var minutesDistance;
 
+var bt1on;
+var bt2on;
+var rt1on;
+var rt2on;
+
 var bt1countdownSecondsDistance;
 var bt1Switch = false;
 var bt2countdownSecondsDistance;
@@ -18,6 +23,16 @@ var rt1countdownSecondsDistance;
 var rt1Switch = false;
 var rt2countdownSecondsDistance;
 var rt2Switch = false;
+
+var b1c;
+var b2c;
+var r1c;
+var r2c;
+
+if(bt1on)
+{
+  ui.frontBlueTimer1.style.display = 'none'; 
+}
 
 var endSound = new Audio('final.mp3');
 
@@ -72,6 +87,167 @@ let ui = {
   time = snapshot.val();
   timer.innerText = time;
     });
+
+  var bt1Listener = firebase.database().ref('bt1'); 
+  bt1Listener.on('value', function(snapshot) {
+  bt1L = snapshot.val();
+  ui.blueTimer1.innerText = bt1L;
+  if(bt1L == 0)
+  {
+    ui.frontBlueTimer1.style.display = 'block';
+    ui.blueTimer1.style.display = 'none';
+    ui.frontBlueTimer1.style.color = 'purple';
+    ui.frontBlueTimer1.innerText = "0";
+    bt1Switch = true
+    endSound.play();
+  }
+  if(bt1L==10)
+  {
+    ui.blueTimer1.innerText = "10";
+    ui.blueTimer1.style.display = 'block';
+    ui.frontBlueTimer1.innerText = "10";
+    ui.frontBlueTimer1.style.color = 'blue';
+  }
+    });
+
+  var bt2Listener = firebase.database().ref('bt2'); 
+  bt2Listener.on('value', function(snapshot) {
+  bt2L = snapshot.val();
+  ui.blueTimer2.innerText = bt2L;
+  if(bt2L == 0)
+  {
+    ui.frontBlueTimer2.style.display = 'block';
+    ui.blueTimer2.style.display = 'none';
+    ui.frontBlueTimer2.style.color = 'purple';
+    ui.frontBlueTimer2.innerText = "0";
+    bt2Switch = true
+    endSound.play();
+  }
+  if(bt2L==20)
+  {
+     ui.blueTimer2.innerText = "20";
+      ui.blueTimer2.style.display = 'block';
+      ui.frontBlueTimer2.innerText = "20";
+      ui.frontBlueTimer2.style.color = 'blue';
+  }
+    });
+
+  var rt1Listener = firebase.database().ref('rt1'); 
+  rt1Listener.on('value', function(snapshot) {
+  rt1L = snapshot.val();
+  ui.redTimer1.innerText = rt1L;
+  if(rt1L == 0)
+  {
+    ui.frontRedTimer1.style.display = 'block';
+    ui.redTimer1.style.display = 'none';
+    ui.frontRedTimer1.style.color = 'purple';
+    ui.frontRedTimer1.innerText = "0";
+    rt1Switch = true
+    endSound.play();
+  }
+   if(rt1L==10)
+  {
+     ui.redTimer1.innerText = "10";
+      ui.redTimer1.style.display = 'block';
+      ui.frontRedTimer1.innerText = "10";
+      ui.frontRedTimer1.style.color = 'red';
+  }
+    });
+
+  var rt2Listener = firebase.database().ref('rt2'); 
+  rt2Listener.on('value', function(snapshot) {
+  rt2L = snapshot.val();
+  ui.redTimer2.innerText = rt2L;
+  if(rt2L == 0)
+  {
+    ui.frontRedTimer2.style.display = 'block';
+    ui.redTimer2.style.display = 'none';
+    ui.frontRedTimer2.style.color = 'purple';
+    ui.frontRedTimer2.innerText = "0";
+    rt2Switch = true
+    endSound.play();
+  }
+  if(rt2L==20)
+  {
+     ui.redTimer2.innerText = "20";
+      ui.redTimer2.style.display = 'block';
+      ui.frontRedTimer2.innerText = "20";
+      ui.frontRedTimer2.style.color = 'red';
+  }
+    });
+  //--------
+  var bt1onListener = firebase.database().ref('bt1on'); 
+  bt1onListener.on('value', function(snapshot) {
+    bt1on = snapshot.val();
+    if(bt1on)
+      {
+       ui.frontBlueTimer1.style.display = 'none'; 
+      }
+    else
+      {
+      ui.frontBlueTimer1.style.display = 'block';   
+      }
+    });
+
+  if(bt1on)
+    {
+      ui.frontBlueTimer1.style.display = 'none';
+    }
+  
+  var bt2onListener = firebase.database().ref('bt2on'); 
+  bt2onListener.on('value', function(snapshot) {
+    bt2on = snapshot.val();
+    if(bt2on)
+      {
+       ui.frontBlueTimer2.style.display = 'none'; 
+      }
+    else
+      {
+      ui.frontBlueTimer2.style.display = 'block';   
+      }
+    });
+
+  if(bt2on)
+    {
+      ui.frontBlueTimer2.style.display = 'none';
+    }
+
+  var rt1onListener = firebase.database().ref('rt1on'); 
+  rt1onListener.on('value', function(snapshot) {
+    rt1on = snapshot.val();
+    if(rt1on)
+      {
+       ui.frontRedTimer1.style.display = 'none'; 
+      }
+    else
+      {
+      ui.frontRedTimer1.style.display = 'block';   
+      }
+    });
+
+  if(rt1on)
+    {
+      ui.frontRedTimer1.style.display = 'none';
+    }
+
+  var rt2onListener = firebase.database().ref('rt2on'); 
+  rt2onListener.on('value', function(snapshot) {
+    rt2on = snapshot.val();
+    if(rt2on)
+      {
+       ui.frontRedTimer2.style.display = 'none'; 
+      }
+    else
+      {
+      ui.frontRedTimer2.style.display = 'block';   
+      }
+    });
+
+  if(rt2on)
+    {
+      ui.frontRedTimer2.style.display = 'none';
+    }
+
 
 ui.timerStart.onclick = function () {
     if(off)
@@ -133,6 +309,21 @@ ui.reset.onclick = function () {
     firebase.database().ref('timeLaser').set('2:00');
     firebase.database().ref('redLaser').set('0');
     firebase.database().ref('blueLaser').set('0');
+
+    clearTimeout(b1c);
+    clearTimeout(b2c);
+    clearTimeout(r1c);
+    clearTimeout(r2c);
+
+    firebase.database().ref('bt1').set('10');
+    firebase.database().ref('bt2').set('20');
+    firebase.database().ref('rt1').set('10');
+    firebase.database().ref('rt2').set('20');   
+
+    firebase.database().ref('bt1on').set(false);
+    firebase.database().ref('bt2on').set(false);
+    firebase.database().ref('rt1on').set(false);
+    firebase.database().ref('rt2on').set(false);
 }
 
 document.addEventListener('keydown', function(event) {
@@ -158,11 +349,13 @@ document.addEventListener('keydown', function(event) {
 ui.frontBlueTimer1.onclick = function () {
     if(bt1Switch)
     {
+      firebase.database().ref('bt1').set(10);
       ui.blueTimer1.innerText = "10";
       ui.blueTimer1.style.display = 'block';
       ui.frontBlueTimer1.innerText = "10";
       ui.frontBlueTimer1.style.color = 'blue';
-      bt2nowSwitch = false;
+      firebase.database().ref('bt1').set(10);
+      bt1Switch = false;
     }
     else
     {
@@ -171,9 +364,9 @@ ui.frontBlueTimer1.onclick = function () {
     var bt1now = new Date().getTime();
     seconds = Math.floor((bt1now % (1000 * 60)) / 1000);
     minutes = Math.floor((bt1now % (1000 * 60 * 60)) / (1000 * 60));
-    //So why do I subtract 50 cause time is in base 60 and the minutes will mess us up
+    
     bt1countdownSecondsDistance = (seconds + 10 + minutes * 60);
-
+    firebase.database().ref('bt1on').set(true);
     blue1Countdown();
     }
 }
@@ -184,6 +377,7 @@ ui.frontBlueTimer2.onclick = function () {
       ui.blueTimer2.style.display = 'block';
       ui.frontBlueTimer2.innerText = "20";
       ui.frontBlueTimer2.style.color = 'blue';
+      firebase.database().ref('bt2').set(20);
       bt2Switch = false;
     }
     else
@@ -193,19 +387,21 @@ ui.frontBlueTimer2.onclick = function () {
     var bt2now = new Date().getTime();
     seconds = Math.floor((bt2now % (1000 * 60)) / 1000);
     minutes = Math.floor((bt2now % (1000 * 60 * 60)) / (1000 * 60));
-    //So why do I subtract 50 cause time is in base 60 and the minutes will mess us up
+    
     bt2countdownSecondsDistance = (seconds + 20 + minutes * 60);
-
+    firebase.database().ref('bt2on').set(true);
     blue2Countdown();
     }
 }
 ui.frontRedTimer1.onclick = function () {
     if(rt1Switch)
     {
+      firebase.database().ref('rt1').set(10);
       ui.redTimer1.innerText = "10";
       ui.redTimer1.style.display = 'block';
       ui.frontRedTimer1.innerText = "10";
       ui.frontRedTimer1.style.color = 'red';
+      firebase.database().ref('rt1').set(10);
       rt1Switch = false;
     }
     else
@@ -215,19 +411,21 @@ ui.frontRedTimer1.onclick = function () {
     var rt1now = new Date().getTime();
     seconds = Math.floor((rt1now % (1000 * 60)) / 1000);
     minutes = Math.floor((rt1now % (1000 * 60 * 60)) / (1000 * 60));
-    //So why do I subtract 50 cause time is in base 60 and the minutes will mess us up
+    
     rt1countdownSecondsDistance = (seconds + 10 + minutes * 60);
-
+    firebase.database().ref('rt1on').set(true);
     red1Countdown();
     }
 }
 ui.frontRedTimer2.onclick = function () {
     if(rt2Switch)
     {
+      firebase.database().ref('rt2').set(20);
       ui.redTimer2.innerText = "20";
       ui.redTimer2.style.display = 'block';
       ui.frontRedTimer2.innerText = "20";
       ui.frontRedTimer2.style.color = 'red';
+      firebase.database().ref('rt2').set(20);
       rt2Switch = false;
     }
     else
@@ -237,9 +435,9 @@ ui.frontRedTimer2.onclick = function () {
     var rt2now = new Date().getTime();
     seconds = Math.floor((rt2now % (1000 * 60)) / 1000);
     minutes = Math.floor((rt2now % (1000 * 60 * 60)) / (1000 * 60));
-    //So why do I subtract 50 cause time is in base 60 and the minutes will mess us up
+    
     rt2countdownSecondsDistance = (seconds + 20 + minutes * 60);
-
+    firebase.database().ref('rt2on').set(true);
     red2Countdown();
     }
 }
@@ -258,6 +456,7 @@ var blue1Countdown = function(){
       ui.blueTimer1.style.display = 'none';
       ui.frontBlueTimer1.style.color = 'purple';
       ui.frontBlueTimer1.innerText = "0";
+      firebase.database().ref('bt1').set(0);
       bt1Switch = true
 
       endSound.play();
@@ -265,8 +464,9 @@ var blue1Countdown = function(){
       clearTimeout(b1c);
     }
     else {
-      //firebase.database().ref('timeLaser').set(time);
+      
       ui.blueTimer1.innerText = bt1countdownSeconds;
+      firebase.database().ref('bt1').set(bt1countdownSeconds);
       b1c = setTimeout(blue1Countdown, 1000); // check again in a second
     }
 }
@@ -283,14 +483,15 @@ var blue2Countdown = function(){
       ui.frontBlueTimer2.style.color = 'purple';
       ui.frontBlueTimer2.innerText = "0";
       bt2Switch = true
-
+      firebase.database().ref('bt2').set(0);
       endSound.play();
 
       clearTimeout(b2c);
     }
     else {
-      //firebase.database().ref('timeLaser').set(time);
+      
       ui.blueTimer2.innerText = bt2countdownSeconds;
+      firebase.database().ref('bt2').set(bt2countdownSeconds);
       b2c = setTimeout(blue2Countdown, 1000); // check again in a second
     }
 }
@@ -307,13 +508,13 @@ var red1Countdown = function(){
       ui.frontRedTimer1.style.color = 'purple';
       ui.frontRedTimer1.innerText = "0";
       rt1Switch = true
-
+      firebase.database().ref('rt1').set(0);
       endSound.play();
 
       clearTimeout(r1c);
     }
     else {
-      //firebase.database().ref('timeLaser').set(time);
+      firebase.database().ref('rt1').set(rt1countdownSeconds);
       ui.redTimer1.innerText = rt1countdownSeconds;
       r1c = setTimeout(red1Countdown, 1000); // check again in a second
     }
@@ -332,13 +533,14 @@ var red2Countdown = function(){
       ui.frontRedTimer2.style.color = 'purple';
       ui.frontRedTimer2.innerText = "0";
       rt2Switch = true
-
+      firebase.database().ref('rt2').set(0);
       endSound.play();
 
       clearTimeout(b2c);
     }
     else {
       //firebase.database().ref('timeLaser').set(time);
+      firebase.database().ref('rt2').set(rt2countdownSeconds);
       ui.redTimer2.innerText = rt2countdownSeconds;
       r2c = setTimeout(red2Countdown, 1000); // check again in a second
     }}
