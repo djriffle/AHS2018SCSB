@@ -557,7 +557,7 @@ var red2Countdown = function(){
       firebase.database().ref('rt2').set(0);
       endSound.play();
 
-      clearTimeout(b2c);
+      clearTimeout(r2c);
     }
     else {
       //firebase.database().ref('timeLaser').set(time);
