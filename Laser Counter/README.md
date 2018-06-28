@@ -4,8 +4,11 @@ A Javascript Script Score board built for American Heritage Robotics Camp sessio
 
 ## Current Functions
 
-`Shift` adds points to the blue team
+`A` adds 50 points to the blue team
 
-`Enter` adds points to the red team.
+`S` subtracts 50 points to the blue team
 
-For an unknown reason before you can you use the laser timers you must press `space`
+`K` adds 50 points to the red team
+
+`L` substracts 50 points to the red team
+

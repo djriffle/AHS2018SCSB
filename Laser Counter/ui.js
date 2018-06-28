@@ -35,6 +35,7 @@ if(bt1on)
 }
 
 var endSound = new Audio('final.mp3');
+var finalSound = new Audio('end.mp3');
 
 let ui = {
     timerStart: document.getElementById('timerStart'),
@@ -283,8 +284,9 @@ var timeDestroyer = function(){
     }
 
     if(seconds <1 && minutes <1){
-    	ui.timer.style.color = "red";
+    	ui.timer.style.color = "purple";
       ui.timer.innerText = "0:00";
+      finalSound.play();
       clearTimeout(ti);
     }
     else {
@@ -307,8 +309,9 @@ ui.reset.onclick = function () {
     off = true;
     clearTimeout(ti);
     firebase.database().ref('timeLaser').set('2:00');
-    firebase.database().ref('redLaser').set('0');
-    firebase.database().ref('blueLaser').set('0');
+    ui.timer.style.color = 'cyan';
+    firebase.database().ref('redLaser').set(0);
+    firebase.database().ref('blueLaser').set(0);
 
     clearTimeout(b1c);
     clearTimeout(b2c);
@@ -327,18 +330,36 @@ ui.reset.onclick = function () {
 }
 
 document.addEventListener('keydown', function(event) {
-    if(event.keyCode == 13) {
+    if(event.keyCode == 65) {
         if(red < 999)
         {
-        red++;
+        red += 50;
         firebase.database().ref('redLaser').set(red);
         ui.redScore.innerText = red;
         }
     }
-    else if(event.keyCode == 16) {
+    else if(event.keyCode == 75) {
         if(blue < 999)
         {
-        blue++;
+        blue += 50;
+        firebase.database().ref('blueLaser').set(blue);
+        ui.blueScore.innerText = blue;
+        }
+
+    }
+    else if(event.keyCode == 83) {
+        if(red < 1001 && red > 0)
+        {
+        red -= 50;
+        firebase.database().ref('redLaser').set(red);
+        ui.redScore.innerText = red;
+        }
+
+    }
+    else if(event.keyCode == 76) {
+        if(blue < 1001 && blue > 0)
+        {
+        blue -= 50;
         firebase.database().ref('blueLaser').set(blue);
         ui.blueScore.innerText = blue;
         }
