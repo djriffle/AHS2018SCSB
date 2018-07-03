@@ -8,13 +8,34 @@ var minutes;
 var secondsDistance;
 var minutesDistance;
 
+var adder = false;
+
+
 let ui = {
     timerStart: document.getElementById('timerStart'),
     timer: document.getElementById('timer'),
     blueScore: document.getElementById('blueScore'),
     redScore: document.getElementById('redScore'),
-    reset: document.getElementById('reset')
+    reset: document.getElementById('reset'),
+    leftFlag: document.getElementById('leftFlag'),
+    rightFlag: document.getElementById('rightFlag'),
+
+    rightPlus: document.getElementById('rightPlus'),
+    rightMinus: document.getElementById('rightMinus'),
+    leftPlus: document.getElementById('leftPlus'),
+    leftMinus: document.getElementById('leftMinus'),
+    redAdd: document.getElementById('redAdd'),
+    blueAdd: document.getElementById('blueAdd')
+
 };
+
+
+ui.redAdd.style.display= 'none';
+        ui.blueAdd.style.display= 'none';
+        ui.rightMinus.style.display = 'none';
+        ui.rightPlus.style.display = 'none';
+        ui.leftMinus.style.display = 'none';
+        ui.leftPlus.style.display = 'none';
 
 //read firebase
 // Set the configuration for your app
@@ -108,9 +129,46 @@ ui.reset.onclick = function () {
     off = true;
     clearTimeout(ti);
     firebase.database().ref('timePirate').set('2:00');
-    firebase.database().ref('redPirate').set('0');
-    firebase.database().ref('bluePirate').set('0');
+    firebase.database().ref('redPirate').set(0);
+    firebase.database().ref('bluePirate').set(0);
 }
+
+ui.rightFlag.onclick = function () {
+    if(blue < 999)
+        {
+        blue +=50;
+        firebase.database().ref('bluePirate').set(blue);
+        ui.blueScore.innerText = blue;
+        }
+      }
+
+ui.leftFlag.onclick = function () {
+    if(red < 999)
+        {
+        red +=50;
+        firebase.database().ref('redPirate').set(red);
+        ui.redScore.innerText = red;
+        }
+      }
+
+ui.leftPlus.onclick = function () {
+    if(red < 999)
+        {
+        red += parseInt(ui.redAdd.value, 10);
+        firebase.database().ref('redPirate').set(red);
+        ui.redScore.innerText = red;
+        }
+      }
+
+ui.leftMinus.onclick = function () {
+    if(red < 999)
+        {
+        red -= parseInt(ui.redAdd.value , 10);
+        firebase.database().ref('redPirate').set(red);
+        ui.redScore.innerText = red;
+        }
+      }
+
 
 document.addEventListener('keydown', function(event) {
     if(event.keyCode == 13) {
@@ -127,6 +185,35 @@ document.addEventListener('keydown', function(event) {
         blue++;
         firebase.database().ref('bluePirate').set(blue);
         ui.blueScore.innerText = blue;
+        }
+
+    }
+
+    else if(event.keyCode == 65) {
+        if(!adder)
+        {
+        ui.redAdd.style.display= 'none';
+        ui.blueAdd.style.display= 'none';
+        ui.rightMinus.style.display = 'none';
+        ui.rightPlus.style.display = 'none';
+        ui.leftMinus.style.display = 'none';
+        ui.leftPlus.style.display = 'none';
+
+        adder = !adder;
+        }
+
+        else
+        {
+        ui.redAdd.style.display= 'block';
+        ui.blueAdd.style.display= 'block';
+
+        ui.rightMinus.style.display = 'block';
+        ui.rightPlus.style.display = 'block';
+
+        ui.leftMinus.style.display = 'block';
+        ui.leftPlus.style.display = 'block';
+
+        adder = !adder;
         }
 
     }
