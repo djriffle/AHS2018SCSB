@@ -22,6 +22,7 @@ let ui = {
 
     rightPlus: document.getElementById('rightPlus'),
     rightMinus: document.getElementById('rightMinus'),
+
     leftPlus: document.getElementById('leftPlus'),
     leftMinus: document.getElementById('leftMinus'),
     redAdd: document.getElementById('redAdd'),
@@ -161,11 +162,29 @@ ui.leftPlus.onclick = function () {
       }
 
 ui.leftMinus.onclick = function () {
-    if(red < 999)
+    if(red > -999)
         {
         red -= parseInt(ui.redAdd.value , 10);
         firebase.database().ref('redPirate').set(red);
         ui.redScore.innerText = red;
+        }
+      }
+
+ui.rightPlus.onclick = function () {
+    if(blue < 999)
+        {
+        blue += parseInt(ui.blueAdd.value, 10);
+        firebase.database().ref('bluePirate').set(blue);
+        ui.blueScore.innerText = blue;
+        }
+      }
+
+ui.rightMinus.onclick = function () {
+    if(blue > -999)
+        {
+        blue -= parseInt(ui.blueAdd.value , 10);
+        firebase.database().ref('bluePirate').set(blue);
+        ui.blueScore.innerText = blue;
         }
       }
 
