@@ -129,6 +129,7 @@ ui.reset.onclick = function () {
     firebase.database().ref('offPirate').set(true);
     off = true;
     clearTimeout(ti);
+    ui.timer.style.color = "green";
     firebase.database().ref('timePirate').set('2:00');
     firebase.database().ref('redPirate').set(0);
     firebase.database().ref('bluePirate').set(0);
@@ -137,7 +138,7 @@ ui.reset.onclick = function () {
 ui.rightFlag.onclick = function () {
     if(blue < 999)
         {
-        blue +=50;
+        blue +=25;
         firebase.database().ref('bluePirate').set(blue);
         ui.blueScore.innerText = blue;
         }
@@ -146,7 +147,7 @@ ui.rightFlag.onclick = function () {
 ui.leftFlag.onclick = function () {
     if(red < 999)
         {
-        red +=50;
+        red +=25;
         firebase.database().ref('redPirate').set(red);
         ui.redScore.innerText = red;
         }
