@@ -136,25 +136,25 @@ ui.reset.onclick = function () {
 }
 
 ui.rightFlag.onclick = function () {
-    if(blue < 999)
+    if(blue < 9990)
         {
-        blue +=25;
+        blue +=250;
         firebase.database().ref('bluePirate').set(blue);
         ui.blueScore.innerText = blue;
         }
       }
 
 ui.leftFlag.onclick = function () {
-    if(red < 999)
+    if(red < 9990)
         {
-        red +=25;
+        red +=250;
         firebase.database().ref('redPirate').set(red);
         ui.redScore.innerText = red;
         }
       }
 
 ui.leftPlus.onclick = function () {
-    if(red < 999)
+    if(red < 9990)
         {
         red += parseInt(ui.redAdd.value, 10);
         firebase.database().ref('redPirate').set(red);
@@ -163,7 +163,7 @@ ui.leftPlus.onclick = function () {
       }
 
 ui.leftMinus.onclick = function () {
-    if(red > -999)
+    if(red > -9990)
         {
         red -= parseInt(ui.redAdd.value , 10);
         firebase.database().ref('redPirate').set(red);
@@ -172,7 +172,7 @@ ui.leftMinus.onclick = function () {
       }
 
 ui.rightPlus.onclick = function () {
-    if(blue < 999)
+    if(blue < 9990)
         {
         blue += parseInt(ui.blueAdd.value, 10);
         firebase.database().ref('bluePirate').set(blue);
@@ -181,7 +181,7 @@ ui.rightPlus.onclick = function () {
       }
 
 ui.rightMinus.onclick = function () {
-    if(blue > -999)
+    if(blue > -9990)
         {
         blue -= parseInt(ui.blueAdd.value , 10);
         firebase.database().ref('bluePirate').set(blue);
@@ -192,17 +192,17 @@ ui.rightMinus.onclick = function () {
 
 document.addEventListener('keydown', function(event) {
     if(event.keyCode == 13) {
-        if(red < 999)
+        if(red < 9990)
         {
-        red++;
+        red += 10;
         firebase.database().ref('redPirate').set(red);
         ui.redScore.innerText = red;
         }
     }
     else if(event.keyCode == 16) {
-        if(blue < 999)
+        if(blue < 9990)
         {
-        blue++;
+        blue += 10;
         firebase.database().ref('bluePirate').set(blue);
         ui.blueScore.innerText = blue;
         }
