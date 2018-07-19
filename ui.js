@@ -14,10 +14,10 @@ let ui = {
     session3: document.getElementById('session3')
 };
 
-//read firebase
-// Set the configuration for your app
-  // TODO: Replace with your project's config object
-  
+
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+	window.location.href = "Mobile/index.html";
+}
 
 ui.session1.onclick = function () {
     window.location.href = "Laser Counter/index.html";

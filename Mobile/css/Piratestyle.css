@@ -1,0 +1,155 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+body {
+    font: 16px sans-serif;
+
+    color: yellow;
+    overflow: hidden;
+    background: "https://stmed.net/sites/default/files/sea-of-thieves-hd-wallpapers-33597-7378771.png";
+
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+button, input[type="text"], input[type="number"], .select-container, select {
+    color: yellow;
+    background: none;
+
+    border: none;
+    font-size: 14px;
+    padding: 6px 8px;
+    cursor: pointer;
+    outline: 0;
+}
+
+
+/* Major interface panes, aside, article, header, etc. */
+body > * {
+    
+    text-shadow: 3px 3px #000000;
+
+
+    position: fixed;
+    overflow: scroll;
+    
+}
+
+#score {
+    position: fixed;
+    padding:0;
+    font-family: sans-serif;
+    display: block;
+    height: 20vh;
+    width: 40vw;
+    top: 30vh;
+    left: 30vw;
+    font-size: 15vw;
+    line-height: 1;
+    color:blue;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+#redFlag {
+    cursor: pointer;
+    position: fixed;
+    padding:0;
+
+    display: block;
+    height: 50vh;
+    width: 100vw;
+    bottom: 0vh;
+    left: 0vw;
+ 
+
+}
+#blueFlag {
+    cursor: pointer;
+    position: fixed;
+    padding:0;
+
+    display: block;
+    height: 50vh;
+    width: 100vw;
+    bottom: 50vh;
+    left: 0vw;
+
+}
+
+#add10 {
+    cursor: pointer;
+    position: fixed;
+    font-family: sans-serif;
+    display: block;
+    height: 20vh;
+    width: 40vw;
+    top: 1vh;
+    left: 30vw;
+    font-size: 10vw;
+    line-height: 1;
+    color:white;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#add50 {
+    cursor: pointer;
+    position: fixed;
+    font-family: sans-serif;
+    display: block;
+    height: 15vh;
+    width: 40vw;
+    top: 15vh;
+    left: 30vw;
+    font-size: 10vw;
+    line-height: 1;
+    color:white;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+#sub10 {
+    cursor: pointer;
+    position: fixed;
+    font-family: sans-serif;
+    display: block;
+    height: 20vh;
+    width: 40vw;
+    bottom: 11vh;
+    left: 30vw;
+    font-size: 10vw;
+    line-height: 1;
+    color:white;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+#sub50 {
+    cursor: pointer;
+    position: fixed;
+    font-family: sans-serif;
+    display: block;
+    height: 20vh;
+    width: 40vw;
+    bottom: 26vh;
+    left: 30vw;
+    font-size: 10vw;
+    line-height: 1;
+    color:white;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+
+
