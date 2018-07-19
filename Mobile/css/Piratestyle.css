@@ -3,9 +3,7 @@
     margin: 0;
     padding: 0;
 }
-::-webkit-scrollbar {
-    display: none;
-}
+
 body {
     font: 16px sans-serif;
 
@@ -17,6 +15,7 @@ body {
     height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
+    overflow:none;
 }
 button, input[type="text"], input[type="number"], .select-container, select {
     color: yellow;
@@ -32,12 +31,10 @@ button, input[type="text"], input[type="number"], .select-container, select {
 
 /* Major interface panes, aside, article, header, etc. */
 body > * {
-    
-    text-shadow: 3px 3px #000000;
+     
 
 
     position: fixed;
-    overflow: scroll;
     
 }
 
