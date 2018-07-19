@@ -10,6 +10,7 @@ var minutesDistance;
 
 var adder = false;
 
+var endSound = new Audio('laugh.mp3');
 
 let ui = {
     timerStart: document.getElementById('timerStart'),
@@ -106,6 +107,7 @@ var timeDestroyer = function(){
     }
 
     if(seconds <1 && minutes <1){
+      endSound.play();
     	ui.timer.style.color = "red";
       ui.timer.innerText = "0:00";
       clearTimeout(ti);
